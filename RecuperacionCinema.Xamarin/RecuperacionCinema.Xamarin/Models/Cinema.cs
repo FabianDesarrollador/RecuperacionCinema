@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecuperacionCinema.Xamarin.Models
 {
-    class Cinema
+    public class Cinema
     {
         public class Pelicula
         {

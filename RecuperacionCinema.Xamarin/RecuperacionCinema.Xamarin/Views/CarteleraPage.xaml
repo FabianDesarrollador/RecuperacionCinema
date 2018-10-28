@@ -2,11 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RecuperacionCinema.Xamarin.Views.CarteleraPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+   
+    <ListView x:Name="liCarteleras" HasUnevenRows="True" ItemSelected="PeliSeleccion">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Imagen}"></Image>
+                            <Label Text="{Binding Nombre}"></Label>
+                            <Label Text="{Binding FechaEstreno}"></Label>
+                            <Label Text="{Binding Genero}"></Label>
+                            <Label Text="{Binding Recomendacion}"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
