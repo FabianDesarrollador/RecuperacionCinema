@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RecuperacionCinema.Xamarin.Views.LoginPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid>
+        <Image Source="cinema.jpg" Aspect="AspectFill"></Image>
+        <BoxView Color="#000C43" Opacity="0.7"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Source="logocine.png" WidthRequest="100" HeightRequest="100" Margin="0,50,0,30"/>
+
+            <StackLayout Grid.Row="1" Padding="30,20">
+                <ActivityIndicator x:Name="loginActivity" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Entry x:Name="userEntry" Placeholder="Ingrese su Usuario" PlaceholderColor="White" TextColor="White"></Entry>
+                <Entry x:Name="passwordEntry" Placeholder="Ingrese Password" PlaceholderColor="White" IsPassword="True" TextColor="White"></Entry>
+                <Button x:Name="loginboton" Text="Iniciar Sesión" BackgroundColor="#001BDE" BorderRadius="20" TextColor="#000C43"></Button>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="¿Recuperar Contraseña?"/>
+                    <Label Text="Registrarse" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>
