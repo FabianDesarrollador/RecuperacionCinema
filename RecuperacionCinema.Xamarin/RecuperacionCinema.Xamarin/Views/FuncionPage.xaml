@@ -1,12 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RecuperacionCinema.Xamarin.Views.FuncionPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="RecuperacionCinema.Xamarin.Views.FuncionPage"
+             Title="Funciones">
+
+    <ListView ItemSelected="SeleccionFuncion">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Titulo"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Fecha"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding FechaEstreno}"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Cantidad Boletas"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Text=""/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Cinema}"/>
+                            <Label Text="{Binding Sala}"/>
+                            <Label Text="{Binding Ciudad}"/>
+                            <Label Text="{Binding Precio}"/>
+                        </StackLayout>
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+    
 </ContentPage>
