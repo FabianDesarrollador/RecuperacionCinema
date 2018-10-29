@@ -40,7 +40,7 @@ namespace RecuperacionCinema.Xamarin.Views
         private async void PeliSeleccion(object sender, SelectedItemChangedEventArgs e)
         {
             var cartelera = e.SelectedItem as Pelicula;
-            await Navigation.PushModalAsync(new FuncionPage(cartelera));
+            await Navigation.PushAsync(new FuncionPage(cartelera));
 
 
         }

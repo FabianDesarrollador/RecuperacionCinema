@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -38,14 +39,26 @@ namespace RecuperacionCinema.Xamarin.Views
             loginActivity.IsRunning = true;
             loginboton.IsEnabled = false;
             HttpClient cliente = new HttpClient();
+            var pass = new
+            {
+                Usuario = "Admin",
+                Password = "CinemaAdmin"
+            };
+            var user = JsonConvert.SerializeObject(cliente);
             cliente.BaseAddress = new Uri("https://misapis.azurewebsites.net");
-            string url = string.Format("/api/Seguridad/{0}/{1}", userEntry.Text, passwordEntry.Text);
-            var response = await cliente.GetAsync(url);
-            var resultado = response.Content.ReadAsStringAsync().Result;
+            var id = new StringContent(user, Encoding.UTF8, "application/json");
+            var response = cliente.PostAsync("/api/Seguridad", id).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var json = response.Content.ReadAsStringAsync.Result;
+                var respond = JsonConvert.DeserializeObject<LoginPage>(json);
+            }
+            
+            
             loginboton.IsEnabled = true;
             loginActivity.IsRunning = false;
 
-            if (string.IsNullOrEmpty(resultado) || resultado == "null")
+            if (response.IsSuccessStatusCode (json) || resultado == "null")
             {
                 await DisplayAlert("Error", "Usuario o clave no válidos", "Aceptar");
                 passwordEntry.Text = string.Empty;
@@ -53,7 +66,7 @@ namespace RecuperacionCinema.Xamarin.Views
                 return;
             }
 
-            await Navigation.PushModalAsync(new CarteleraPage());
+            await Navigation.PushAsync(new CarteleraPage());
         }
     }
 }

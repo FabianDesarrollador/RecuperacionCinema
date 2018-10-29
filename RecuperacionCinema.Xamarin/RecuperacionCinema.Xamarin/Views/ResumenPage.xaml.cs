@@ -13,7 +13,7 @@ namespace RecuperacionCinema.Xamarin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ResumenPage : ContentPage
 	{
-		public ResumenPage (Funciones function)
+		public ResumenPage (Funciones function, Pelicula cartelera)
 		{
 			InitializeComponent ();
 		}

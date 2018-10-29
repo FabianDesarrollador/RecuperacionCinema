@@ -13,16 +13,20 @@ namespace RecuperacionCinema.Xamarin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FuncionPage : ContentPage
 	{
-		public FuncionPage (Pelicula cartelera)
+        private Pelicula cinemark;
+
+        public FuncionPage (Pelicula cartelera)
 		{
 			InitializeComponent ();
             BindingContext = cartelera;
+            SeleccionFuncion.ItemsSource = cartelera.Funciones;
+            cinemark = cartelera;
         }
 
-        private async void SeleccionFuncion(object sender, SelectedItemChangedEventArgs e)
+        private async void SeleccionFuncion_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var function = e.SelectedItem as Funciones;
-            await Navigation.PushModalAsync(new ResumenPage(function));
+            await Navigation.PushAsync(new ResumenPage(function, cinemark));
         }
     }
 }

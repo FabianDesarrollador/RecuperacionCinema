@@ -8,34 +8,24 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="3*"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Text="Titulo"/>
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}"/>
+                    <StackLayout>
+                        <Label Text="Titulo"/>
+                        <Label Text="{Binding Nombre}"/>
 
-                        <Label Grid.Row="1" Grid.Column="0" Text="Fecha"/>
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding FechaEstreno}"/>
+                        <Label Text="Fecha"/>
+                        <Label Text="{Binding FechaEstreno}"/>
 
-                        <Label Grid.Row="2" Grid.Column="0" Text="Cantidad Boletas"/>
-                        <Entry Grid.Row="2" Grid.Column="1" Text=""/>
-
-                        <StackLayout Orientation="Horizontal">
+                        <Label Text="Cantidad Boletas"/>
+                        <Entry Text=""/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding Cinema}"/>
                             <Label Text="{Binding Sala}"/>
                             <Label Text="{Binding Ciudad}"/>
                             <Label Text="{Binding Precio}"/>
                         </StackLayout>
 
-                    </Grid>
+                   
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
